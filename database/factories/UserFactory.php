@@ -7,6 +7,7 @@ namespace Database\Factories;
 use Illuminate\Support\Str;
 use App\Models\User;
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Hash;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
@@ -15,7 +16,7 @@ $factory->define(User::class, function (Faker $faker) {
             'date_of_birth' => $faker->date(),
             'email' => $faker->unique()->safeEmail,
             'email_verified_at' => now(),
-            'password' => $faker->password(),
+            'password' => Hash::make($faker->password()),
             'profile_image' => $faker->image(),
             'remember_token' => Str::random(10),
     ];

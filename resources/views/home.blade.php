@@ -15,6 +15,8 @@
                         </div>
                     @endif
 
+                    <a href="{{ route('posts.create') }}">Create Post</a>
+
                     <ul>
                     @foreach ($posts as $post) 
                         <li><a href="{{ route('posts.show', ['id'=>$post->id]) }}">{{ $post->post_title }}</a></li>

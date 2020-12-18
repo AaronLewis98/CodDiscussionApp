@@ -3,6 +3,7 @@
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
@@ -23,7 +24,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Lewis',
             'date_of_birth' => '1998-05-29',
             'email' => 'user@email.com',
-            'password' => 'password',
+            'password' => Hash::make('password'),
             'profile_image' => 'userImage.jpg',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10)

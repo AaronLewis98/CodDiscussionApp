@@ -72,6 +72,21 @@
             </div>
         </nav>
 
+        @if ($errors->any())
+            <div>
+                Errors:
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if (session('message'))
+            <p><b>{{ session('message') }}</b></p>
+        @endif
+
         <main class="py-4">
             @yield('content')
         </main>
