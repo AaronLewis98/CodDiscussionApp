@@ -15,7 +15,7 @@ class CreateGameModesTable extends Migration
     {
         Schema::create('game_modes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('mode_title');
+            $table->string('name');
             $table->string('mode_description');
             $table->timestamps();
         });

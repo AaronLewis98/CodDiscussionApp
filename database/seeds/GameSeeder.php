@@ -15,7 +15,7 @@ class GameSeeder extends Seeder
     public function run()
     {
         $modernWarfare = Game::create([
-            'game_title' => 'Modern Warfare',
+            'name' => 'Modern Warfare',
             'date_of_release' => '2019-11-10',
             'age_restriction' => '18',
         ]);
@@ -25,7 +25,7 @@ class GameSeeder extends Seeder
        
 
         $coldWar = Game::create([
-            'game_title' => 'Cold War',
+            'name' => 'Cold War',
             'date_of_release' => '2020-11-13',
             'age_restriction' => '18',
         ]);

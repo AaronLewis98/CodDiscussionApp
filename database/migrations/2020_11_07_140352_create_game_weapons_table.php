@@ -15,7 +15,7 @@ class CreateGameWeaponsTable extends Migration
     {
         Schema::create('game_weapons', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('weapon_name');
+            $table->string('name');
             $table->string('weapon_type');
             $table->timestamps();
         });

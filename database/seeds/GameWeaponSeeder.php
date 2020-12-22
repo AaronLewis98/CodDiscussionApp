@@ -21,57 +21,57 @@ class GameWeaponSeeder extends Seeder
         $shotgun = 'Shotgun';
 
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'Kilo',
+            'name' => 'Kilo',
             'weapon_type' => $assaultRifle
         ]);
 
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'Amax',
+            'name' => 'Amax',
             'weapon_type' => $assaultRifle
         ]);
 
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'AK-47',
+            'name' => 'AK-47',
             'weapon_type' => $assaultRifle
         ]);
 
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'MP5',
+            'name' => 'MP5',
             'weapon_type' => $submachineGun
         ]);
     
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'UZI',
+            'name' => 'UZI',
             'weapon_type' => $submachineGun
         ]);
 
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'HDR',
+            'name' => 'HDR',
             'weapon_type' => $sniperRifle
         ]);
 
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'M91',
+            'name' => 'M91',
             'weapon_type' => $lightmachineGun
         ]);
 
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'Origin',
+            'name' => 'Origin',
             'weapon_type' => $shotgun
         ]);
 
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'Kar',
+            'name' => 'Kar',
             'weapon_type' => $marksmanRifle
         ]);
 
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'MX4',
+            'name' => 'MX4',
             'weapon_type' => $assaultRifle
         ]);
 
         DB::table('game_weapons')->insert([
-            'weapon_name' => 'AK-74u',
+            'name' => 'AK-74u',
             'weapon_type' => $assaultRifle
         ]);
 
