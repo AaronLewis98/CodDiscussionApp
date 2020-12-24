@@ -89,7 +89,7 @@ class PostController extends Controller
         $post->tags()->detach();
         $post->tags()->attach($validatedPost['tag_id']);
 
-        return redirect()->route('comments.create', ['post'=>$post])->with('message', 'Post Item Was Created.');
+        return redirect()->route('posts.show', ['post'=>$post])->with('message', 'Post Item Was Updated.');
     }
 
     /**

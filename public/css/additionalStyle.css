@@ -1,0 +1,33 @@
+#outer
+{
+    width:100%;
+    text-align: center;
+}
+.inner
+{
+    display: inline-block;
+    margin: 10px;
+}
+
+#wrapper {
+    width: 80%;
+    margin-left: 10%;
+    align-content: center;
+    overflow: hidden;
+}
+#first {
+    width: 48%;
+    margin: 1%;
+    float:left;
+}
+#second {
+    width: 48%;
+    margin: 1%;
+    float: left;
+}
+
+.margin-create
+{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}

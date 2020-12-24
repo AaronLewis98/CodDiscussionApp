@@ -15,13 +15,19 @@
                         </div>
                     @endif
 
-                    <a href="{{ route('posts.create') }}">Create Post</a>
+                    <a href="{{ route('posts.create') }}" class="btn btn-secondary margin-create">Create Post</a>
 
-                    <ul>
-                    @foreach ($posts as $post) 
-                        <li><a href="{{ route('posts.show', ['post'=>$post]) }}">{{ $post->post_title }}</a></li>
-                    @endforeach
-                    </ul>
+                    <div class="container">
+                        @foreach ($posts as $post)
+                            <li class="list-group-item list-group-item-light">
+                                <a href="{{ route('posts.show', ['post'=>$post]) }}" class="btn btn-light">{{ $post->post_title }}</a>
+                            </li>
+                        @endforeach
+                    </div>
+                    
+                    <div class="container">
+                        {{ $posts->links() }}
+                    </div>
                 </div>
             </div>
         </div>

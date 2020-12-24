@@ -28,7 +28,7 @@ class CommentController extends Controller
             }
         }
         $tags = $post->tags;
-        return view('comments.create', ['post' => $post, 'postedBy' => $postedBy, 'tags' => $tags, 'isAdmin' => $isAdmin]);
+        return view('posts.show', ['post' => $post, 'postedBy' => $postedBy, 'tags' => $tags, 'isAdmin' => $isAdmin]);
     }
 
     public function apiIndex($id)
@@ -39,6 +39,12 @@ class CommentController extends Controller
 
     public function apiStore(Request $request)
     {
+        $validatedComment = $request->validate([
+            'user_id' => ['required'],
+            'post_id' => ['required'],
+            'comment_body' => ['required', 'max:255']
+        ]);
+
         $comment = Comment::create([
             'user_id' => $request->user_id,
             'post_id' => $request->post_id,
