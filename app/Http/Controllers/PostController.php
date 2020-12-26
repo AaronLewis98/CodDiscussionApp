@@ -41,11 +41,21 @@ class PostController extends Controller
     {
         $validatedPost = $request->validate([
             'post_title' => ['required', 'max:255'],
+            'post_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'post_body' => ['required', 'max:255'],
             'tag_id' => ['required']
         ]);
 
         $post = new Post;
+
+        if($request->hasFile('post_image')) 
+        {
+            $imageName = $request->post_image->getClientOriginalName();
+    
+            $request->post_image->storeAs('images', $imageName, 'public');
+            $post->post_image = $imageName;
+        }
+
         $post->user_id = auth()->user()->id;
         $post->post_title = $validatedPost['post_title'];
         $post->post_body = $validatedPost['post_body'];
@@ -77,11 +87,21 @@ class PostController extends Controller
         $validatedPost = $request->validate([
             'post_title' => ['required', 'max:255'],
             'post_body' => ['required', 'max:255'],
+            'post_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'post_id' => ['required'],
             'tag_id' => ['required']
         ]);
 
         $post = Post::find($validatedPost['post_id']);
+
+        if($request->hasFile('post_image')) 
+        {
+            $imageName = $request->post_image->getClientOriginalName();
+    
+            $request->post_image->storeAs('images', $imageName, 'public');
+            $post->post_image = $imageName;
+        }
+
         $post->user_id = auth()->user()->id;
         $post->post_title = $validatedPost['post_title'];
         $post->post_body = $validatedPost['post_body'];

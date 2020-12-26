@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Comments:') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('posts.store') }}">
+                    <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="input-group input-group-sm mb-3">
                             <div class="input-group-prepend">
@@ -16,6 +16,13 @@
                             </div>
                             <input class="form-control" aria-label="With textarea" type="text" 
                                 name="post_title" value="{{ old('post_title') }}"/>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Post Image: </span>
+                            </div>
+                            <input class="form-control" aria-label="With textarea" type="file" 
+                                name="post_image" value="{{ old('post_image') }}"/>
                         </div>
                         <div class="input-group input-group-sm mb-3">
                             <div class="input-group-prepend">

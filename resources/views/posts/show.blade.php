@@ -60,7 +60,7 @@
                 <div class="card-header">{{ __('Selected Post:') }}</div>
                 <div class="card-body">
                     <li class="list-group-item list-group-item-light">Title: {{ $post->post_title}}</li>
-                    <li class="list-group-item list-group-item-light">IMAGE TO GO HERE</li>
+                    <li class="list-group-item list-group-item-light"><img src="{{ asset('storage/images/'.$post->post_image) }}" alt="post_image" class="display-image"/></li>
                     <li class="list-group-item list-group-item-light">{{$post->post_body}}</li>
                     <li class="list-group-item list-group-item-light">Posted By: {{ $postedBy->first_name." ".$postedBy->last_name}}</li>
                     <li class="list-group-item list-group-item-light">Tags:
