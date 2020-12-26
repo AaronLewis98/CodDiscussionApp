@@ -1,6 +1,26 @@
 @extends('layouts.app')
 
 @section('title', 'Home Page')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/7.0.2/pusher.min.js"></script>
+<script>
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher("0b12ee2b3fe81e7dda7f", {
+        cluster: "eu",
+        forceTLS: true
+    });
+
+    var channel = pusher.subscribe('post-commented-channel');
+
+    channel.bind('comment-event', function(data) {
+        var currentUser = {!! json_encode(auth()->user()->email) !!}
+        
+        if(data.email == currentUser) {
+            alert(JSON.stringify(data.commentEmail));
+        }
+    });
+
+</script>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

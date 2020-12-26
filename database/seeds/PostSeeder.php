@@ -14,9 +14,8 @@ class PostSeeder extends Seeder
     {
         $post = Post::create([
             'user_id' => 1,
-            'post_title' => 'example title',
-            'post_body' => 'example body of post',
-            'post_image' => 'example_post_image.jpg'
+            'post_title' => 'Call Of Duty Is Amazing!',
+            'post_body' => 'Warzone has saved the franchise'
         ]);
 
         $post->tags()->attach(1);

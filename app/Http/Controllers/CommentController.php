@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PostCommented;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Role;
@@ -46,10 +47,15 @@ class CommentController extends Controller
         ]);
 
         $comment = Comment::create([
-            'user_id' => $request->user_id,
-            'post_id' => $request->post_id,
-            'comment_body'=> $request->comment_body
+            'user_id' => $validatedComment['user_id'],
+            'post_id' => $validatedComment['post_id'],
+            'comment_body'=> $validatedComment['comment_body']
         ]);
+
+        $postUserEmail = Post::find($validatedComment['post_id'])->user->email;
+        $commentUserEmail = User::find($validatedComment['user_id'])->email;
+
+        event(new PostCommented($postUserEmail, $commentUserEmail));
 
         return $comment;
     }

@@ -37,3 +37,9 @@
     height: 200px;
     width: 200px;
 }
+
+.custom-corner-button
+{
+    margin-left: 10px;
+    margin-top: 10px;
+}

@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\PostCommented;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
