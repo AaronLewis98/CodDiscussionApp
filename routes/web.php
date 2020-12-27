@@ -1,7 +1,6 @@
 <?php
 
-use App\Events\PostCommented;
-use App\Models\User;
+use App\Quote;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,3 +29,10 @@ Route::get('/home/{post}', 'PostController@show')->name('posts.show');
 Route::delete('home/{post}', 'PostController@destroy')->name('posts.destroy');
 Route::get('/edit/{post}', 'PostController@edit')->name('posts.edit');
 Route::post('/edit', 'PostController@update')->name('posts.update');
+
+app()->singleton('App\Quote', function($app) {
+    return new Quote();
+});
+
+Route::get('/quote', 'QuoteController@quote')->name('quote');
+
