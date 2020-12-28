@@ -41,12 +41,12 @@
                     <div class="container">
                         @foreach ($posts as $post)
                             <li class="list-group-item list-group-item-light">
-                                <a href="{{ route('posts.show', ['post'=>$post]) }}" class="btn btn-light">{{ $post->post_title }}</a>
+                                <a href="{{ route('posts.show', ['post'=>$post]) }}" class="btn post-btn-home">{{ $post->post_title }}</a>
                             </li>
                         @endforeach
                     </div>
                     
-                    <div class="container">
+                    <div class="paginate-center">
                         {{ $posts->links() }}
                     </div>
                 </div>

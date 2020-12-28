@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Create a new controller instance and apply auth middleware.
      *
      * @return void
      */
@@ -18,7 +17,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application dashboard with paginated data.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

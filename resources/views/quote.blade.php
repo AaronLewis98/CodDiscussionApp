@@ -9,8 +9,8 @@
                 <div class="card">
                     <div class="card-header">{{ __('Quote Of The Day!') }}</div>
                         <ul class="list-group">
-                            <li class="list-group-item list-group-item-light">{{ $quote }}</li>
-                            <li class="list-group-item list-group-item-light">{{ $author }}</li>
+                            <li class="list-group-item list-group-item-light">"{{ $quote }}"</li>
+                            <li class="list-group-item list-group-item-light">Author: {{ $author }}</li>
                         </ul>
                     </div>
                 </div>

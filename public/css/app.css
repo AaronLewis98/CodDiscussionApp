@@ -4977,6 +4977,9 @@ input[type=button].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  outline-style: groove;
+  outline-color: indigo;
+  background-color: rgba(181, 183, 209, 0.76) !important;
 }
 
 .card-title {
@@ -5003,7 +5006,9 @@ input[type=button].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(172, 20, 20, 0);
+  outline-style: groove;
+  outline-color: indigo;
+  background-color: rgb(154, 158, 221) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 

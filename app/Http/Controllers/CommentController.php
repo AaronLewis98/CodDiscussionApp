@@ -13,8 +13,9 @@ class CommentController extends Controller
 {
 
     /**
-     * Show the application dashboard.
+     * Show the selected post view.
      *
+     * @param App\Models\Post The post object to be handled.
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function create(Post $post) 
@@ -32,12 +33,24 @@ class CommentController extends Controller
         return view('posts.show', ['post' => $post, 'postedBy' => $postedBy, 'tags' => $tags, 'isAdmin' => $isAdmin]);
     }
 
+    /**
+     * Gets all comments for a specific post, with the user attached.
+     * 
+     * @param $id The post id.
+     * @return App\Models\Comment
+     */
     public function apiIndex($id)
     {
         $comments = Comment::where('post_id', '=', $id)->with('user')->get();
         return $comments;
     }
 
+    /**
+     * Validates and stores the created comment.
+     * 
+     * @param Illuminate\Http\Request The request to be handled.
+     * @return \Illuminate\Http\Response
+     */
     public function apiStore(Request $request)
     {
         $validatedComment = $request->validate([
@@ -57,19 +70,30 @@ class CommentController extends Controller
 
         event(new PostCommented($postUserEmail, $commentUserEmail));
 
-        return $comment;
+        return response('Comment Created', 200)->header('Content-Type', 'text/plain');
     }
 
+    /**
+     * Show the edit comment view.
+     *
+     * @param App\Models\Comment The comment object to be handled.
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function edit(Comment $comment)
     {
         return view('comments.edit', ['comment'=> $comment]);
     }
 
+    /**
+     * Validates and updates the edited comment.
+     * 
+     * @param Illuminate\Http\Request The request to be handled.
+     * @return \Illuminate\Routing\Redirector
+     */
     public function update(Request $request)
     {
         $validatedPost = $request->validate([
             'comment_body' => ['required', 'max:255'],
-            'user_id' => ['required'],
             'post_id' => ['required'],
             'comment_id' => ['required']
         ]);

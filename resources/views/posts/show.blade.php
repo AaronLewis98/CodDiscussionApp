@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Comment Create</title>
+    <title>View Post</title>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/additionalStyle.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <a href="{{ route('home') }}" class="btn btn-secondary custom-corner-button">Back</a>
@@ -58,7 +59,6 @@
         
     <div id="wrapper">
         <div id="first">
-           
             <div class="card">
                 <div class="card-header">{{ __('Selected Post:') }}</div>
                 <div class="card-body">
@@ -91,11 +91,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-                    
+            </div>        
         </div>
         <div id="second">
-            
             <div class="card">
                 <div class="card-header">{{ __('Comments:') }}</div>
                 <div class="card-body">
@@ -103,16 +101,17 @@
                         <div v-if="comments.length !== 0">
                             <ul v-for="comment in comments" class="list-group">
                                 <li class="list-group-item list-group-item-light">
-                                    <div>@{{ comment.comment_body }}</div>
-                                    <div>Commented By: @{{ comment.user.first_name + " " + comment.user.last_name}}</div>
-                                    <div v-if="comment.user_id == newCommentUserId || {!! json_encode(auth()->user()->id == 1) !!}">
+                                    <div class="comment-div">
+                                        <div>@{{ comment.comment_body }}</div>
+                                        <div>Commented By: @{{ comment.user.first_name + " " + comment.user.last_name}}</div>
+                                    </div>
+                                    <div class="comment-edit" v-if="comment.user_id == newCommentUserId || {!! json_encode(auth()->user()->id == 1) !!}">
                                         <a v-on:click="commentEditRoute(comment.id)"
                                             class="btn btn-secondary">EDIT</a>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                
                         <div id="outer">
                             <div class="inner">
                                 <div class="input-group input-group-sm mb-3">
@@ -131,8 +130,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-               
+        </div>    
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>

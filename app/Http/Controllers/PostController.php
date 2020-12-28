@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
    /**
-     * Create a new controller instance.
+     * Create a new controller instance and apply auth middleware.
      *
      * @return void
      */
@@ -32,10 +32,10 @@ class PostController extends Controller
     }
 
     /**
-     * Store a newly created post
+     * Store a newly created post after validation.
      * 
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request The request to be handled.
+     * @return \Illuminate\Routing\Redirector
      */
     public function store(Request $request) 
     {
@@ -66,8 +66,9 @@ class PostController extends Controller
     }
 
     /**
-     * Show the create post view.
+     * Show the edit post view.
      *
+     * @param App\Models\Post The post to edit.
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function edit(Post $post)
@@ -77,10 +78,10 @@ class PostController extends Controller
     }
 
      /**
-     * Store a newly created post
+     * Update the edited post providing validation succeeds.
      * 
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request The request to handle.
+     * @return \Illuminate\Routing\Redirector
      */
     public function update(Request $request) 
     {
@@ -115,7 +116,7 @@ class PostController extends Controller
     /**
      * Show the post selected.
      *
-     * @param $id The post id
+     * @param App\Models\Post The post to show.
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function show(Post $post)
@@ -134,10 +135,10 @@ class PostController extends Controller
     }
 
     /**
-     * Delete the selected post
+     * Delete the selected post.
      * 
-     * @param $id The post id
-     * @return \Illuminate\Http\Response
+     * @param App\Models\Post The post to delete.
+     * @return \Illuminate\Routing\Redirector
      */
     public function destroy(Post $post)
     {

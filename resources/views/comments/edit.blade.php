@@ -18,8 +18,6 @@
                                 name="comment_body" value="{{ $comment->comment_body }}"/>
                         </div>
                         <input class="form-control" aria-label="With textarea" type="hidden" 
-                            name="user_id" value="{{ $comment->user_id }}"/>
-                        <input class="form-control" aria-label="With textarea" type="hidden" 
                             name="post_id" value="{{ $comment->post_id }}"/>
                         <input class="form-control" aria-label="With textarea" type="hidden" 
                             name="comment_id" value="{{ $comment->id }}"/>

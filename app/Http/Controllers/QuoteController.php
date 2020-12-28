@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Quote;
-use Illuminate\Http\Request;
 
 class QuoteController extends Controller
 {
+    /**
+     * Handle Quote data and show quote of the day view.
+     *
+     * @param App\Quote The quote singleton class data to handle.
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function quote(Quote $quote)
     {
         $quoteText = $quote->quote->contents->quotes[0]->quote;
