@@ -37,4 +37,5 @@ app()->singleton('App\Quote', function($app) {
 });
 
 Route::get('/quote', 'QuoteController@quote')->name('quote');
+Route::get('/game', 'HomeController@game')->name('game');
 

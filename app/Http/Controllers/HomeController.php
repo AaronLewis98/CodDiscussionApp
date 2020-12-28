@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use App\Models\Post;
 
 class HomeController extends Controller
@@ -25,5 +26,17 @@ class HomeController extends Controller
     {
         $posts = Post::paginate(7);
         return view('home', ['posts' => $posts]);
+    }
+
+    /**
+     * Show the game view.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function game()
+    {
+        $games = Game::get();
+
+        return view('game', ['games' => $games]);
     }
 }

@@ -26,7 +26,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Posts') }}</div>
+                <div class="card-header">{{ __('Posts') }}
+                    <div style="float: right">
+                        Account Role(s):
+                        @foreach (auth()->user()->roles as $role)
+                            {{$role->role_type}}
+                        @endforeach
+                    </div>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -37,6 +44,7 @@
 
                     <a href="{{ route('posts.create') }}" class="btn btn-secondary margin-create">Create Post</a>
                     <a href="{{ route('quote') }}" class="btn btn-secondary margin-create">Daily Quote</a>
+                    <a href="{{ route('game') }}" class="btn btn-secondary margin-create">Game Info</a>
 
                     <div class="container">
                         @foreach ($posts as $post)
