@@ -8,8 +8,6 @@ class Quote
 
     public function __construct()
     {
-        $this->quote;
-
         //call to api setting quote variable to json response
         $handle = curl_init();
         $url = 'https://quotes.rest/qod?language=en';
