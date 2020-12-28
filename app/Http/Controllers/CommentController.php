@@ -60,4 +60,27 @@ class CommentController extends Controller
         return $comment;
     }
 
+    public function edit(Comment $comment)
+    {
+        return view('comments.edit', ['comment'=> $comment]);
+    }
+
+    public function update(Request $request)
+    {
+        $validatedPost = $request->validate([
+            'comment_body' => ['required', 'max:255'],
+            'user_id' => ['required'],
+            'post_id' => ['required'],
+            'comment_id' => ['required']
+        ]);
+
+        $comment = Comment::find($validatedPost['comment_id']);
+        $comment->user_id = auth()->user()->id;
+        $comment->post_id = $validatedPost['post_id'];
+        $comment->comment_body = $validatedPost['comment_body'];
+        $comment->save();
+
+        return redirect()->route('posts.show', ['post'=>$comment->post_id])->with('message', 'Comment Was Updated.');
+    }
+
 }

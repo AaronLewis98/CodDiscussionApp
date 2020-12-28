@@ -36,6 +36,7 @@
                     @endif
 
                     <a href="{{ route('posts.create') }}" class="btn btn-secondary margin-create">Create Post</a>
+                    <a href="{{ route('quote') }}" class="btn btn-secondary margin-create">Daily Quote</a>
 
                     <div class="container">
                         @foreach ($posts as $post)
