@@ -20,11 +20,11 @@ class UserSeeder extends Seeder
         $standardRole = Role::where('role_type', 'Standard')->first();
 
         $defaultUser = User::create([
-            'first_name' => 'Aaron',
-            'last_name' => 'Lewis',
+            'first_name' => 'Admin',
+            'last_name' => 'User',
             'date_of_birth' => '1998-05-29',
-            'email' => 'user@email.com',
-            'password' => Hash::make('password'),
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('Admin1'),
             'profile_image' => 'userImage.jpg',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10)
