@@ -16,7 +16,7 @@
         var currentUser = {!! json_encode(auth()->user()->email) !!}
         
         if(data.email == currentUser) {
-            alert(JSON.stringify(data.commentEmail));
+            alert(JSON.stringify(data.message));
         }
     });
 
