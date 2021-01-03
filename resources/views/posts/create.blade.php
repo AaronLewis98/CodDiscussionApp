@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Comments:') }}</div>
+                <div class="card-header">{{ __('Create Post:') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                         @csrf
@@ -33,7 +33,7 @@
                         </div>
                         <div class="input-group input-group-sm mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Post Body:</span>
+                                <span class="input-group-text">Tags:</span>
                             </div>
                             <select class="form-control custom-select-lg" name="tag_id">
                                 @foreach($tags as $tag)
